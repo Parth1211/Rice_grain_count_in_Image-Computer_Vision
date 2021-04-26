@@ -3,6 +3,7 @@ Summary
 Through this, we could find the number of rice grains in this image, it could have been any other object as well(ball, stars in the night sky etc).
 
 This was the procedure I followed-
+![](IMAGES/original.jpg)
 1) Loading image from the drive, and then passing it through the sharpening kernel(*)(this reason will be explained later on).
 
 2) Converting the BGR image to RGB image, as we use RGB images in processing.
