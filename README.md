@@ -4,20 +4,26 @@ Through this, we could find the number of rice grains in this image, it could ha
 
 This was the procedure I followed-
 
-<img src="IMAGES/Original.jpg">
+
 
 1) Loading image from the drive, and then passing it through the sharpening kernel(^)(this reason will be explained later on).
+<img src="IMAGES/Original.jpg">
+<img src="IMAGES/Sharpened.jpg">
 
 2) Converting the BGR image to RGB image, as we use RGB images in processing.
 
-3) And then we convert it to aa grayscale image, as we would be needing a binary(black and white image), for better result.
+3) And then we convert it to a grayscale image, as we would be needing a binary(black and white image), for better result.
+<img src="IMAGES/Grayscaled.jpg">
 
 4) Then on converting it to binary image I found out a lot of noise in the image, as the "threshhold" values set in the filter for it to convert to binary image were too low, that is, the values of gray pixels(0-255) for which it was convreting them to black pixels was too low. Therefore, I regulated the values to the extent till which I could remove most of the noise, the rice grains being uneffected.
+<img src="IMAGES/Binary1.jpg">
+<img src="IMAGES/Binary2.jpg">
 
 5) Still, a lot of noise was visible in the image, hence I passed it through the median removal kernel, which removes Salt and Pepper noise(the type of noise my image had). And then I got the final image, I worked upon.
+<img src="IMAGES/Binary3.jpg">
 
 6) Then finally I used the OpenCV function cv2.findContours(), which as the name says, finds contours on the objects in the blaack and white image I had prepared, and then cv2.drawContours() draws contours that it recorded by the previous function, on the image we pass through it. cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE are the 2 parameters of cv2.findContours() which I used to store contours of my image. And then I printed the number of contours(according to the function).
-
+<img src="IMAGES/Contour.jpg">
 (^) - There are some rice grains that are very close to each other, and they have shared borders. Hence by sharpening the images, I reduced the number of such shared borders, which would have caused problem while detection of contours.
 
 Scope of improvement-
